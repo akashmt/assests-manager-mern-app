@@ -5,7 +5,7 @@ const NavigationBar = () => {
   return (
     <Navbar expand="lg" bg="dark" variant="dark">
       <LinkContainer to="/">
-        <Navbar.Brand>Asset Manger1</Navbar.Brand>
+        <Navbar.Brand>Asset Manger</Navbar.Brand>
       </LinkContainer>
 
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
