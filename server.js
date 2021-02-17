@@ -9,11 +9,13 @@ const { propfind } = require("./routes/categories");
 
 const app = express();
 
+const port = process.env.PORT || 5000;
+
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("This is the mernapp API!!");
-});
+
+
+
 
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/locations", locationsRoutes);
@@ -27,15 +29,15 @@ app.use((err, req, res, next) => {
     .json({ error: "Server error", code: err.code, message: err.message });
 });
 
-if(process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
+
+app.use(express.static('client/build'));
+
 
 const listen = async () => {
   const conn = await connect(process.env.MONGODB_URI);
   if (conn) {
-    app.listen(process.env.PORT, () => {
-      console.log(`Server running on port ${process.env.PORT}`);
+    app.listen(port, () => {
+      console.log(`Server running on port ${port}`);
     });
   }
 };
