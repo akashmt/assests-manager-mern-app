@@ -13,10 +13,6 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
-
-
-
-
 app.use("/api/categories", categoriesRoutes);
 app.use("/api/locations", locationsRoutes);
 app.use("/api/assets", assetsRoutes);
@@ -34,7 +30,7 @@ app.use(express.static('client/build'));
 
 
 const listen = async () => {
-  const conn = await connect(process.env.MONGODB_URI);
+  const conn = await connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/assets_manager');
   if (conn) {
     app.listen(port, () => {
       console.log(`Server running on port ${port}`);
