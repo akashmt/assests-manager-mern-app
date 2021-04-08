@@ -11,7 +11,7 @@ const connect = async (dbConnectionString) => {
     console.log(`Console connected to the "${conn.name}" database`);
     return conn;
   } catch (error) {
-    console.log(`Error on db connection - Code:`, error.code);
+    console.log(`Error on db connection - Code:`, error);
   }
 };
 
