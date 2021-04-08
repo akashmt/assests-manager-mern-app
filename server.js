@@ -1,11 +1,13 @@
 const express = require("express");
 const connect = require("./connect");
+const path = require('path');
 require("dotenv").config();
 const categoriesRoutes = require("./routes/categories");
 const locationsRoutes = require("./routes/locations");
 const assetsRoutes = require("./routes/assets");
 const usersRoutes = require("./routes/users");
 const { propfind } = require("./routes/categories");
+
 
 const app = express();
 
